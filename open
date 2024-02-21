@@ -1,0 +1,18 @@
+#!/bin/bash
+
+. conf
+
+diaryRoot="$(dirname $0)"
+currentPageName=$(date +$nameFormat)
+currentPage="$diaryRoot/$currentPageName"
+
+if [ ! -f $currentPage ]
+then
+  echo > $currentPage
+  touch $currentPage
+fi
+
+chmod $filePermission $currentPage
+
+$editor $currentPage
+subl --command "set_file_type { \"syntax\": \"Packages/Markdown/Markdown.sublime-syntax\" }"

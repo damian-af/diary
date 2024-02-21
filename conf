@@ -1,0 +1,3 @@
+filePermission=600
+nameFormat='%m-%d-%Y'
+editor="subl"
